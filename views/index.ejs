@@ -31,15 +31,19 @@
             <button></button>
             <button></button>
         </div>
-        <div id="tasks">
-            <% for(let task of tasks) { %>
-                <p>
-                    <%= task.description %>
-                        <%= task.category %>
-                            <%= task.dueDate %>
-                </p>
-                <%}%>
-        </div>
+        <form method="GET" action="/delete">
+            <div id="tasks">
+                <% for(let task of tasks) { %>
+                    <input type="checkbox" name="tasksToDelete" value="<%=task._id%>">
+                    <p>
+                        <%= task.description %>
+                            <%= task.category %>
+                                <%= task.dueDate %>
+                    </p>
+                    <%}%>
+            </div>
+            <button type="submit">Delete the selected tasks</button>
+        </form>
     </main>
 </body>
 

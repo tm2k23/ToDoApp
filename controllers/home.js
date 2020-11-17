@@ -10,6 +10,9 @@ const ToDoList = require('../models/todolist.js');
 
 
 module.exports.home = function(req, res) {
+    // res.writeHead(200, {
+    //     'content-type': 'text/html'
+    // });
 
     // fetching all the tasks in database
     ToDoList.find({}, function(err, taskstodo) {
