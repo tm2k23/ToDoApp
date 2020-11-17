@@ -1,0 +1,40 @@
+<!-- this is the ejs file for the page to be rendered -->
+<html>
+
+<head>
+    <title>My To Do List</title>
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+</head>
+
+<body>
+    <main>
+        <div id="heading">
+            <h1>TODO App</h1>
+        </div>
+        <div id="detail">
+            <form method="GET" action="/add">
+                <input type="text" name="description">
+                <select name="category">
+                    <option selected>Choose a category</option>
+                    <option value="Personal">Personal</option>
+                    <option value="Work">Work</option>
+                    <option value="School">School</option>
+                    <option value="Cleaning">Cleaning</option>
+                    <option value="Other">Other</option>
+                    </select>
+                <input type="date" name="dueDate">
+                <button type="submit">Add to the task list</button>
+            </form>
+        </div>
+        <div id="action">
+            <button></button>
+            <button></button>
+        </div>
+        <div id="tasks">
+            <form></form>
+        </div>
+    </main>
+</body>
+
+</html>

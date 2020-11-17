@@ -1,0 +1,12 @@
+body {
+    display: flex;
+    justify-content: center;
+    /* background-image: url('/images/background.png'); */
+    background-image: url('/images/background.png');
+}
+
+main {
+    width: 50%;
+    border: 2px solid black;
+    background-color: rgba(239, 234, 241, 0.8);
+}
