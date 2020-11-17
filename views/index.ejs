@@ -32,7 +32,13 @@
             <button></button>
         </div>
         <div id="tasks">
-            <form></form>
+            <% for(let task of tasks) { %>
+                <p>
+                    <%= task.description %>
+                        <%= task.category %>
+                            <%= task.dueDate %>
+                </p>
+                <%}%>
         </div>
     </main>
 </body>
