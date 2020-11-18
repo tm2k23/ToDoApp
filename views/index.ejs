@@ -1,30 +1,47 @@
 <!-- this is the ejs file for the page to be rendered -->
+
+<!-- this page uses no frameworks for any purpose and is purely styled using css -->
+
 <html>
 
 <head>
     <title>My To Do List</title>
+
+    <!-- links for fontawesome icons -->
     <link href="/fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="/fontawesome/css/brands.css" rel="stylesheet">
     <link href="/fontawesome/css/solid.css" rel="stylesheet">
+
+    <!-- stylesheets -->
     <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <!-- stylesheet for responsivesess , I have seperated this bcz, the main stylesheet was becoming bulky -->
     <link rel="stylesheet" href="/css/responsiveness.css" type="text/css">
+
+    <!-- viewport meta tag -->
     <meta name="viewport" content="width = device-width , initial-scale=1">
+
+    <!-- jquery -->
     <script type="text/javascript" src="/js/jquery.js"></script>
 </head>
 
 <body>
     <main>
+        <!-- this is the main section of the page -->
         <div id="heading">
-            <h1>TODO App</h1>
+            <!-- this is for the top most heading of the page -->
+            <h1>ToDo App</h1>
         </div>
         <div id="detail">
+            <!-- this is div where all the input boxes are added to provide the detail this contains a form-->
             <form method="GET" action="/add" id="addForm">
                 <div id="desciptionDiv">
+                    <!-- this is for the description of the task -->
                     <label for="description">DESCRIPTION</label>
                     <input type="text" name="description" id="description" placeholder="What do you need to do ?">
                 </div>
                 <div id="categoryDateDiv">
                     <div id="categoryDiv">
+                        <!-- this is for the category of the task -->
                         <label for="category">CATEGORY</label>
                         <select name="category" id="category">
                             <option selected>Choose a category</option>
@@ -36,33 +53,47 @@
                         </select>
                     </div>
                     <div id="dateDiv">
+                        <!-- this is for the date of the task -->
                         <label for="date">DUE DATE</label>
                         <input type="date" name="dueDate" id="date">
                     </div>
                 </div>
             </form>
         </div>
+
         <div id="action">
+            <!-- this is the next div which contains the button of add and delete -->
+
+            <!-- this is the add button and is the submit button for the above form -->
             <button type="submit" form="addForm" id="addButton"><i class="fas fa-plus"></i> &nbsp ADD TASK</button>
+
+            <!-- this is the delete button and is the submit button fot the form just below this div -->
             <button type="submit" form="deleteForm" id="deleteButton"><i class="fas fa-trash-alt"></i> &nbsp DELETE TASKS</button>
         </div>
+
         <form method="GET" action="/delete" id="deleteForm">
+            <!-- here I have added a form because selecting checkboxes need to delete those tasks which is done using form here -->
             <div id="tasks">
+                <!-- below is the js loop which iterated throught all the tasks in the database -->
                 <% for(let task of tasks) { %>
                     <div class="task" id="<%=task._id%>">
                         <div class="taskCheckboxDiv">
+                            <!-- this is the checkbox input used incase user needs to delete the task -->
                             <input type="checkbox" name="tasksToDelete" value="<%=task._id%>">
                         </div>
                         <div class="taskDescriptionAndDueDateDiv">
                             <div class="taskDescriptionDiv">
+                                <!-- this is the description of the task -->
                                 <%= task.description %>
                             </div>
                             <div class="taskDueDateDiv">
+                                <!-- this is the duedate of the task -->
                                 <i class="fas fa-calendar-alt"></i> &nbsp
                                 <span><%= task.dueDate %></span>
                             </div>
                         </div>
                         <div class="taskCategoryDiv">
+                            <!-- this is the category of the task -->
                             <%= task.category %>
                         </div>
                     </div>
@@ -70,6 +101,8 @@
             </div>
         </form>
     </main>
+
+    <!-- this is the script for this page -->
     <script type="text/javascript" src="/js/home.js"></script>
 </body>
 

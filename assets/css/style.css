@@ -1,7 +1,6 @@
 body {
     display: flex;
     justify-content: center;
-    /* background-image: url('/images/background.png'); */
     background-image: url('/images/background.png');
     font-family: system-ui;
     margin: 0;
@@ -19,6 +18,7 @@ main {
     border: 2px solid black;
     background-color: rgba(255, 255, 255, 0.98);
     height: 99vh;
+    /* overflow: hidden; to make the page fixed */
     overflow: hidden;
     min-width: 500px;
 }
@@ -27,6 +27,10 @@ main {
     text-align: center;
     border-bottom: 2px solid rgba(128, 128, 128, 0.3);
     padding: 10px;
+    background-color: rgb(101, 145, 186);
+    color: white;
+    box-shadow: -3px 7px 20px 0px #484865;
+    position: relative;
 }
 
 label {
@@ -38,6 +42,7 @@ label {
 
 #desciptionDiv {
     padding: 10px 20px;
+    padding-top: 20px;
     background-color: white;
     border-bottom: 2px solid rgba(128, 128, 128, 0.3);
 }
@@ -45,10 +50,6 @@ label {
 #description {
     width: 100%;
     border: none;
-}
-
-#description:focus {
-    outline: none;
 }
 
 #categoryDateDiv {
@@ -74,7 +75,9 @@ label {
 }
 
 #category:focus,
-#date:focus {
+#date:focus,
+#description:focus {
+    /* to remove the outline when focused */
     outline: none;
 }
 
@@ -90,18 +93,18 @@ label {
 #action {
     display: flex;
     justify-content: space-evenly;
-    padding: 30px;
+    padding: 25px;
 }
 
 #action button {
-    padding: 12px;
-    font-size: 1rem;
+    padding: 10px;
+    font-size: 0.95rem;
     color: white;
     border: none;
 }
 
 #action button i {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 #addButton {
@@ -118,8 +121,14 @@ label {
  *******************************************************************************************************/
 
 #tasks {
+    /* overflow: scroll; to make the tasklist scroll */
     overflow: scroll;
-    height: 55vh;
+    height: 60vh;
+    background-color: rgba(245, 175, 83, 0.3);
+}
+
+#tasks::-webkit-scrollbar {
+    display: none;
 }
 
 .task {
@@ -131,12 +140,16 @@ label {
 }
 
 .highlightTheTask {
-    background-color: rgba(245, 175, 83, 0.8);
+    /* this class is added to the task using js when it is selected using checkbox */
+    background-color: rgba(245, 175, 83, 0.8) !important;
+    /* this is to strikethrought the task when selected to delete */
     text-decoration: line-through;
 }
 
 .task:hover {
+    /* this is to change background-color:  of the task when hovered; */
     background-color: rgba(170, 147, 231, 0.5);
+    box-shadow: 0px 0px 8px 0.2px rgba(53, 16, 155, 0.5) inset;
 }
 
 .taskCheckboxDiv {
@@ -181,5 +194,5 @@ label {
     text-align: center;
     padding: 5px;
     color: white;
-    box-shadow: 0px 5px 10px 1px black;
+    box-shadow: 1px 7px 16px 0px black;
 }

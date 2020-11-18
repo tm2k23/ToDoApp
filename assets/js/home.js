@@ -1,3 +1,7 @@
+window.onscroll = function() {
+    window.scrollTo(0, 0);
+}
+
 /******************************************************************************************* 
           cut the date given by the database, bcz, it is of some different format 
 **************************************************************************************** */
@@ -9,6 +13,7 @@ for (let dateString of dateStrings) {
     dateString.innerText = dateString.innerText.substring(0, 15);
     // console.log(dateString.innerText.substring(0, 15));
 }
+
 
 
 
@@ -49,15 +54,23 @@ for (var category of categories) {
 
 
 /******************************************************************************************* 
-                                Highlight the selected task 
+                                Highlight the selected task
+Concept used : every checkbox have their values which is the id of the task from the database
+these values are the ids of the task div 
+when the checkbox is clicked , check if the checkbox is checked or not , 
+and then add or remove the highlight class accordingly 
 **************************************************************************************** */
+// document.querySelectorAll('[name="tasksToDelete"]') selects all the checkboxes
 for (let inputCheckbox of document.querySelectorAll('[name="tasksToDelete"]')) {
     let checkboxValue = inputCheckbox.getAttribute('value');
+
+    // add click event listner to the checkboxes
     inputCheckbox.addEventListener('click', function() {
         if (inputCheckbox.checked == true) {
-            console.log('checkbox is checked');
+            // add class to highlight the task when it is checked
             document.getElementById(checkboxValue).classList.add("highlightTheTask");
         } else {
+            // remove class when unchecked
             document.getElementById(checkboxValue).classList.remove("highlightTheTask");
         }
     });
