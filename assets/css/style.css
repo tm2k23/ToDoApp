@@ -122,7 +122,7 @@ label {
     height: 55vh;
 }
 
-#task {
+.task {
     display: flex;
     position: relative;
     align-items: center;
@@ -130,27 +130,32 @@ label {
     padding: 15px;
 }
 
-#task:hover {
+.highlightTheTask {
+    background-color: rgba(245, 175, 83, 0.8);
+    text-decoration: line-through;
+}
+
+.task:hover {
     background-color: rgba(170, 147, 231, 0.5);
 }
 
-#taskCheckboxDiv {
+.taskCheckboxDiv {
     /* all the contents are aligned in center , but I want check to align differently */
     align-self: flex-start;
     margin-top: 5px;
 }
 
-#taskCheckboxDiv input {
+.taskCheckboxDiv input {
     /* changing the size of checkbox */
     transform: scale(1.5);
 }
 
-#taskDescriptionAndDueDateDiv {
+.taskDescriptionAndDueDateDiv {
     margin-left: 20px;
     line-height: 23px;
 }
 
-#taskDescriptionDiv {
+.taskDescriptionDiv {
     color: rgb(9, 9, 134);
     font-size: 1.1rem;
     font-family: sans-serif;
@@ -163,7 +168,7 @@ label {
     word-spacing: -4px;
 }
 
-#task:hover .taskDueDateDiv {
+.task:hover .taskDueDateDiv {
     color: rgba(255, 255, 255, 1);
     /* color: red; */
 }

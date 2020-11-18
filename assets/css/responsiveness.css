@@ -24,13 +24,13 @@
     #action button i {
         font-size: 0.8rem;
     }
-    #task {
+    .task {
         padding: 5px 15px;
     }
-    #taskCheckboxDiv input {
+    .taskCheckboxDiv input {
         transform: scale(1.2);
     }
-    #taskDescriptionDiv {
+    .taskDescriptionDiv {
         font-size: 1rem;
     }
     .taskCategoryDiv {

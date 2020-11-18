@@ -10,6 +10,9 @@ for (let dateString of dateStrings) {
     // console.log(dateString.innerText.substring(0, 15));
 }
 
+
+
+
 /******************************************************************************************* 
                              Giving color to categories
                              personal :rgb(178,73,38)
@@ -37,4 +40,25 @@ for (var category of categories) {
             category.style.backgroundColor = "rgb(1,1,1)";
             break;
     }
+}
+
+
+
+
+
+
+
+/******************************************************************************************* 
+                                Highlight the selected task 
+**************************************************************************************** */
+for (let inputCheckbox of document.querySelectorAll('[name="tasksToDelete"]')) {
+    let checkboxValue = inputCheckbox.getAttribute('value');
+    inputCheckbox.addEventListener('click', function() {
+        if (inputCheckbox.checked == true) {
+            console.log('checkbox is checked');
+            document.getElementById(checkboxValue).classList.add("highlightTheTask");
+        } else {
+            document.getElementById(checkboxValue).classList.remove("highlightTheTask");
+        }
+    });
 }

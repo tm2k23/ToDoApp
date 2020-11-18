@@ -49,12 +49,12 @@
         <form method="GET" action="/delete" id="deleteForm">
             <div id="tasks">
                 <% for(let task of tasks) { %>
-                    <div id="task">
-                        <div id="taskCheckboxDiv">
+                    <div class="task" id="<%=task._id%>">
+                        <div class="taskCheckboxDiv">
                             <input type="checkbox" name="tasksToDelete" value="<%=task._id%>">
                         </div>
-                        <div id="taskDescriptionAndDueDateDiv">
-                            <div id="taskDescriptionDiv">
+                        <div class="taskDescriptionAndDueDateDiv">
+                            <div class="taskDescriptionDiv">
                                 <%= task.description %>
                             </div>
                             <div class="taskDueDateDiv">
