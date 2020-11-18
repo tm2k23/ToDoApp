@@ -1,0 +1,39 @@
+/******************************************************************************************************* 
+                           media queries to make the age fully responsive
+ *******************************************************************************************************/
+
+@media(max-width:700px) {
+    main {
+        min-width: 0px;
+        width: 70%;
+    }
+}
+
+@media(max-width:600px) {
+    #heading {
+        padding: 5px;
+        font-size: 1rem;
+    }
+    #action {
+        padding: 15px;
+    }
+    #action button {
+        padding: 10px;
+        font-size: 0.7rem;
+    }
+    #action button i {
+        font-size: 0.8rem;
+    }
+    #task {
+        padding: 5px 15px;
+    }
+    #taskCheckboxDiv input {
+        transform: scale(1.2);
+    }
+    #taskDescriptionDiv {
+        font-size: 1rem;
+    }
+    .taskCategoryDiv {
+        padding: 2px;
+    }
+}

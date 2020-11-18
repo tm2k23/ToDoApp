@@ -3,8 +3,13 @@
 
 <head>
     <title>My To Do List</title>
+    <link href="/fontawesome/css/fontawesome.css" rel="stylesheet">
+    <link href="/fontawesome/css/brands.css" rel="stylesheet">
+    <link href="/fontawesome/css/solid.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css" type="text/css">
-
+    <link rel="stylesheet" href="/css/responsiveness.css" type="text/css">
+    <meta name="viewport" content="width = device-width , initial-scale=1">
+    <script type="text/javascript" src="/js/jquery.js"></script>
 </head>
 
 <body>
@@ -13,38 +18,59 @@
             <h1>TODO App</h1>
         </div>
         <div id="detail">
-            <form method="GET" action="/add">
-                <input type="text" name="description">
-                <select name="category">
-                    <option selected>Choose a category</option>
-                    <option value="Personal">Personal</option>
-                    <option value="Work">Work</option>
-                    <option value="School">School</option>
-                    <option value="Cleaning">Cleaning</option>
-                    <option value="Other">Other</option>
-                    </select>
-                <input type="date" name="dueDate">
-                <button type="submit">Add to the task list</button>
+            <form method="GET" action="/add" id="addForm">
+                <div id="desciptionDiv">
+                    <label for="description">DESCRIPTION</label>
+                    <input type="text" name="description" id="description" placeholder="What do you need to do ?">
+                </div>
+                <div id="categoryDateDiv">
+                    <div id="categoryDiv">
+                        <label for="category">CATEGORY</label>
+                        <select name="category" id="category">
+                            <option selected>Choose a category</option>
+                            <option value="Personal">Personal</option>
+                            <option value="Work">Work</option>
+                            <option value="School">School</option>
+                            <option value="Cleaning">Cleaning</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div id="dateDiv">
+                        <label for="date">DUE DATE</label>
+                        <input type="date" name="dueDate" id="date">
+                    </div>
+                </div>
             </form>
         </div>
         <div id="action">
-            <button></button>
-            <button></button>
+            <button type="submit" form="addForm" id="addButton"><i class="fas fa-plus"></i> &nbsp ADD TASK</button>
+            <button type="submit" form="deleteForm" id="deleteButton"><i class="fas fa-trash-alt"></i> &nbsp DELETE TASKS</button>
         </div>
-        <form method="GET" action="/delete">
+        <form method="GET" action="/delete" id="deleteForm">
             <div id="tasks">
                 <% for(let task of tasks) { %>
-                    <input type="checkbox" name="tasksToDelete" value="<%=task._id%>">
-                    <p>
-                        <%= task.description %>
+                    <div id="task">
+                        <div id="taskCheckboxDiv">
+                            <input type="checkbox" name="tasksToDelete" value="<%=task._id%>">
+                        </div>
+                        <div id="taskDescriptionAndDueDateDiv">
+                            <div id="taskDescriptionDiv">
+                                <%= task.description %>
+                            </div>
+                            <div class="taskDueDateDiv">
+                                <i class="fas fa-calendar-alt"></i> &nbsp
+                                <span><%= task.dueDate %></span>
+                            </div>
+                        </div>
+                        <div class="taskCategoryDiv">
                             <%= task.category %>
-                                <%= task.dueDate %>
-                    </p>
+                        </div>
+                    </div>
                     <%}%>
             </div>
-            <button type="submit">Delete the selected tasks</button>
         </form>
     </main>
+    <script type="text/javascript" src="/js/home.js"></script>
 </body>
 
 </html>

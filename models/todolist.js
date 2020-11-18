@@ -24,5 +24,5 @@ const todoSchema = new mongoose.Schema({
         required: true
     }
 });
-const ToDo = mongoose.model('ToDo', todoSchema); // adding model to mongoose
+const ToDo = mongoose.model('ToDo', todoSchema); // creating model with todoSchema as the schema
 module.exports = ToDo;

@@ -9,7 +9,7 @@ its export in used in add.js router file
 const ToDoList = require('../models/todolist.js');
 
 module.exports.add = function(req, res) {
-    console.log(req.query);
+    console.log(typeof(req.query.dueDate));
 
     // adding the task to database
     ToDoList.create(req.query, function(err, newTask) {
@@ -17,7 +17,7 @@ module.exports.add = function(req, res) {
             console.log('Error in adding the task');
             return;
         }
-        console.log('new added task is ', newTask)
+        // console.log('new added task is ', newTask)
         return res.redirect('back');
     })
 
