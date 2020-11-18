@@ -75,3 +75,24 @@ for (let inputCheckbox of document.querySelectorAll('[name="tasksToDelete"]')) {
         }
     });
 }
+
+/******************************************************************************************* 
+                    changing the height of task list div on window resizing
+                    because its overflow is hidden
+**************************************************************************************** */
+function resizeTaskListDiv() {
+    // calculating the height all three top divs
+    var headingHeight = document.getElementById('heading').getBoundingClientRect().height;
+    var descriptionHeigth = document.getElementById('desciptionDiv').getBoundingClientRect().height;
+    var cdHeight = document.getElementById('categoryDateDiv').getBoundingClientRect().height;
+    // calculating the height of main
+    var mainHeight = document.getElementById('main').getBoundingClientRect().height;
+    // console.log(`mainHeight : ${mainHeight} \n headingHeight : ${headingHeight} \n descriptionHeigth : ${descriptionHeigth} \n cdHeight : ${cdHeight}`)
+    // console.log(mainHeight);
+    // console.log(headingHeight + descriptionHeigth + cdHeight);
+    document.getElementById('tasks').style.height = (mainHeight - (headingHeight + descriptionHeigth + cdHeight) - 70) + 'px';
+    console.log(document.getElementById('tasks').getBoundingClientRect().height);
+};
+// event listners
+window.onload = resizeTaskListDiv;
+window.onresize = resizeTaskListDiv;

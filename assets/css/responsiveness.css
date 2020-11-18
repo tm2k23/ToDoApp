@@ -34,6 +34,62 @@
         font-size: 1rem;
     }
     .taskCategoryDiv {
-        padding: 2px;
+        padding: 2px 5px;
+        box-shadow: 1px 5px 10px 0px black;
+    }
+}
+
+@media (max-width:500px) {
+    #heading {
+        padding: 4px;
+        font-size: 0.9rem;
+    }
+    #desciptionDiv {
+        padding-top: 15px;
+    }
+    #categoryDateDiv {
+        display: flex;
+        flex-direction: column;
+    }
+    #categoryDiv {
+        border-right: none;
+        border-bottom: 2px solid rgba(128, 128, 128, 0.3);
+    }
+    #categoryDateDiv div {
+        width: 90%;
+        padding: 7px 20px;
+    }
+}
+
+@media(max-width:420px) {
+    main {
+        width: 90%;
+    }
+}
+
+@media(max-width:350px) {
+    #heading {
+        font-size: 0.8rem;
+    }
+    .task {
+        padding: 5px 10px;
+    }
+    .taskCheckboxDiv input {
+        transform: scale(1);
+    }
+    .taskDescriptionAndDueDateDiv {
+        margin-left: 10px;
+        line-height: 20px;
+    }
+    .taskDescriptionDiv {
+        font-size: 0.95rem;
+        font-family: sans-serif;
+    }
+    .taskDueDateDiv {
+        font-size: 0.85rem;
+        word-spacing: -3px;
+    }
+    #action {
+        padding: 15px 0px;
     }
 }

@@ -115,6 +115,10 @@ label {
     background-color: rgb(238, 53, 30);
 }
 
+#action button:hover {
+    box-shadow: 1px 4px 10px 0px #060625;
+}
+
 
 /******************************************************************************************************* 
                                                 TASK LIST
@@ -123,7 +127,7 @@ label {
 #tasks {
     /* overflow: scroll; to make the tasklist scroll */
     overflow: scroll;
-    height: 60vh;
+    height: 56vh;
     background-color: rgba(245, 175, 83, 0.3);
 }
 
@@ -139,6 +143,11 @@ label {
     padding: 15px;
 }
 
+.task:last-child {
+    /* padding-bottom: 0px; */
+    margin-bottom: 20px;
+}
+
 .highlightTheTask {
     /* this class is added to the task using js when it is selected using checkbox */
     background-color: rgba(245, 175, 83, 0.8) !important;
@@ -149,7 +158,7 @@ label {
 .task:hover {
     /* this is to change background-color:  of the task when hovered; */
     background-color: rgba(170, 147, 231, 0.5);
-    box-shadow: 0px 0px 8px 0.2px rgba(53, 16, 155, 0.5) inset;
+    /* box-shadow: 0px 0px 8px 0.2px rgba(53, 16, 155, 0.5) inset; */
 }
 
 .taskCheckboxDiv {
@@ -195,4 +204,12 @@ label {
     padding: 5px;
     color: white;
     box-shadow: 1px 7px 16px 0px black;
+}
+
+
+/* changing cursor to pointer */
+
+input[type="checkbox"]:hover,
+button:hover {
+    cursor: pointer;
 }
