@@ -5,13 +5,13 @@
 <html>
 
 <head>
-    <title>My To Do List</title>
+    <title>To Do List</title>
 
     <!-- links for fontawesome icons -->
     <link href="/fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="/fontawesome/css/brands.css" rel="stylesheet">
     <link href="/fontawesome/css/solid.css" rel="stylesheet">
-
+    <link href="/images/pageFevicon.png" rel="shortcut icon" type="image/icon">
     <!-- stylesheets -->
     <link rel="stylesheet" href="/css/style.css" type="text/css">
     <!-- stylesheet for responsivesess , I have seperated this bcz, the main stylesheet was becoming bulky -->
@@ -67,8 +67,9 @@
             <!-- this is the add button and is the submit button for the above form -->
             <button type="submit" form="addForm" id="addButton"><i class="fas fa-plus"></i> &nbsp ADD TASK</button>
 
-            <!-- this is the delete button and is the submit button fot the form just below this div -->
-            <button type="submit" form="deleteForm" id="deleteButton"><i class="fas fa-trash-alt"></i> &nbsp DELETE TASKS</button>
+            <!-- this is the delete button and is the submit button fot the form just below this div
+            initially the button is disabled bcz no task is selected to delete -->
+            <button type="submit" form="deleteForm" id="deleteButton" disabled><i class="fas fa-trash-alt"></i> &nbsp DELETE TASKS</button>
         </div>
 
         <form method="GET" action="/delete" id="deleteForm">

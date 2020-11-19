@@ -115,8 +115,19 @@ label {
     background-color: rgb(238, 53, 30);
 }
 
+#deleteButton:disabled {
+    /* this is to reduce the opacity of background colour when button is diabled */
+    background-color: rgba(238, 53, 30, 0.6);
+}
+
 #action button:hover {
+    /* this will give shadow to all action buttons on hover */
     box-shadow: 1px 4px 10px 0px #060625;
+}
+
+#action button:disabled:hover {
+    /* this is to remove shadow on when when the button is diabled*/
+    box-shadow: none;
 }
 
 
@@ -181,6 +192,9 @@ label {
     color: rgb(9, 9, 134);
     font-size: 1.1rem;
     font-family: sans-serif;
+    /* width: 40%!important;
+    overflow: hidden;
+    margin-right: 80px !important; */
 }
 
 .taskDueDateDiv {

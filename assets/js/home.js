@@ -1,6 +1,10 @@
 window.onscroll = function() {
+    // this is to make the page stable 
     window.scrollTo(0, 0);
 }
+
+// initially the cursor for delete button is set to not allowed because no task is selected to dlt
+$('#deleteButton')[0].style.cursor = "not-allowed";
 
 /******************************************************************************************* 
           cut the date given by the database, bcz, it is of some different format 
@@ -47,7 +51,20 @@ for (var category of categories) {
     }
 }
 
+/******************************************************************************************* 
+                    disable buttons when no task is selected to delete
+**************************************************************************************** */
+function disableTheButton(buttonToDisable) {
+    // function to disable the button , accepting DOM object as argument
+    buttonToDisable.disabled = true;
+    buttonToDisable.style.cursor = "not-allowed"; // change the cursor to not allowed
+};
 
+function enableTheButton(buttonToEnable) {
+    // function to enable the button , accepting DOM object as argument
+    buttonToEnable.disabled = false;
+    buttonToEnable.style.cursor = "pointer"; // change the cursor to pointer
+};
 
 
 
@@ -73,6 +90,18 @@ for (let inputCheckbox of document.querySelectorAll('[name="tasksToDelete"]')) {
             // remove class when unchecked
             document.getElementById(checkboxValue).classList.remove("highlightTheTask");
         }
+
+        // below code it to enable and disable the delete button
+        // concept::::when a checkbox is clicked, it is checked if there is any checked box
+        // if there will be any checked box, then button will be enabled
+        // else diabled
+        // console.log($("#deleteForm input:checkbox:checked").length);
+        if ($("#deleteForm input:checkbox:checked").length > 0) {
+            // this function is defined above
+            enableTheButton($('#deleteButton')[0]);
+        } else if ($("#deleteForm input:checkbox:checked").length == 0) {
+            disableTheButton($('#deleteButton')[0]);
+        }
     });
 }
 
@@ -91,7 +120,6 @@ function resizeTaskListDiv() {
     // console.log(mainHeight);
     // console.log(headingHeight + descriptionHeigth + cdHeight);
     document.getElementById('tasks').style.height = (mainHeight - (headingHeight + descriptionHeigth + cdHeight) - 70) + 'px';
-    console.log(document.getElementById('tasks').getBoundingClientRect().height);
 };
 // event listners
 window.onload = resizeTaskListDiv;
