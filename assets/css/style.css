@@ -217,7 +217,8 @@ label {
     text-align: center;
     padding: 5px;
     color: white;
-    box-shadow: 1px 7px 16px 0px black;
+    box-shadow: 1px 7px 16px 0px #634949;
+    border-radius: 3px;
 }
 
 

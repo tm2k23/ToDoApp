@@ -37,14 +37,15 @@
                 <div id="desciptionDiv">
                     <!-- this is for the description of the task -->
                     <label for="description">DESCRIPTION</label>
-                    <input type="text" name="description" id="description" placeholder="What do you need to do ?">
+                    <input type="text" name="description" id="description" placeholder="What do you need to do ?" required>
                 </div>
                 <div id="categoryDateDiv">
                     <div id="categoryDiv">
                         <!-- this is for the category of the task -->
                         <label for="category">CATEGORY</label>
-                        <select name="category" id="category">
-                            <option selected>Choose a category</option>
+                        <select name="category" id="category" required>
+                            <!-- this option is selcted by default and is disabled  -->
+                            <option disabled selected>Choose a category</option>
                             <option value="Personal">Personal</option>
                             <option value="Work">Work</option>
                             <option value="School">School</option>
@@ -55,7 +56,7 @@
                     <div id="dateDiv">
                         <!-- this is for the date of the task -->
                         <label for="date">DUE DATE</label>
-                        <input type="date" name="dueDate" id="date">
+                        <input type="date" name="dueDate" id="date" required>
                     </div>
                 </div>
             </form>

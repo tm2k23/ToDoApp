@@ -92,10 +92,10 @@ for (let inputCheckbox of document.querySelectorAll('[name="tasksToDelete"]')) {
         }
 
         // below code it to enable and disable the delete button
-        // concept::::when a checkbox is clicked, it is checked if there is any checked box
-        // if there will be any checked box, then button will be enabled
-        // else diabled
-        // console.log($("#deleteForm input:checkbox:checked").length);
+        /* concept::::when a checkbox is clicked, it is checked if there is any checked box
+                    if there will be any checked box, then button will be enabled else diabled
+                    console.log($("#deleteForm input:checkbox:checked").length);
+        */
         if ($("#deleteForm input:checkbox:checked").length > 0) {
             // this function is defined above
             enableTheButton($('#deleteButton')[0]);
@@ -124,3 +124,33 @@ function resizeTaskListDiv() {
 // event listners
 window.onload = resizeTaskListDiv;
 window.onresize = resizeTaskListDiv;
+
+
+/******************************************************************************************* 
+                Check if all the fields are properly filled while adding task
+**************************************************************************************** */
+function checkDetailFields(event) {
+    // this function is called when the add button is clicked
+
+    // first check if the description is added
+    if ($('#description')[0].value.trim() == "") {
+        window.alert('Add a Description');
+        event.preventDefault();
+    } else {
+        // if the description is added then check if category is added
+        if ($('#category')[0].value == "Choose a category") {
+            window.alert('Choose a Category');
+            event.preventDefault();
+        } else {
+            // if category is added then check if due date is added
+            if ($('#date')[0].value.trim() == "") {
+                window.alert('Enter Due Date');
+                event.preventDefault();
+            }
+        }
+    }
+
+}
+
+// adding event listner on add button
+$('#addButton')[0].addEventListener('click', checkDetailFields);
