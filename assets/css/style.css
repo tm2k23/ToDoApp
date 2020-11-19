@@ -192,9 +192,15 @@ label {
     color: rgb(9, 9, 134);
     font-size: 1.1rem;
     font-family: sans-serif;
-    /* width: 40%!important;
-    overflow: hidden;
-    margin-right: 80px !important; */
+    overflow: scroll;
+    scroll-behavior: auto;
+    text-overflow: ellipsis;
+    max-width: 34vw;
+    max-height: 60px;
+}
+
+.taskDescriptionDiv::-webkit-scrollbar {
+    display: none;
 }
 
 .taskDueDateDiv {

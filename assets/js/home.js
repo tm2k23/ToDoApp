@@ -6,6 +6,8 @@ window.onscroll = function() {
 // initially the cursor for delete button is set to not allowed because no task is selected to dlt
 $('#deleteButton')[0].style.cursor = "not-allowed";
 
+
+
 /******************************************************************************************* 
           cut the date given by the database, bcz, it is of some different format 
 **************************************************************************************** */
@@ -50,6 +52,9 @@ for (var category of categories) {
             break;
     }
 }
+
+
+
 
 /******************************************************************************************* 
                     disable buttons when no task is selected to delete
@@ -105,6 +110,9 @@ for (let inputCheckbox of document.querySelectorAll('[name="tasksToDelete"]')) {
     });
 }
 
+
+
+
 /******************************************************************************************* 
                     changing the height of task list div on window resizing
                     because its overflow is hidden
@@ -126,6 +134,8 @@ window.onload = resizeTaskListDiv;
 window.onresize = resizeTaskListDiv;
 
 
+
+
 /******************************************************************************************* 
                 Check if all the fields are properly filled while adding task
 **************************************************************************************** */
@@ -135,7 +145,7 @@ function checkDetailFields(event) {
     // first check if the description is added
     if ($('#description')[0].value.trim() == "") {
         window.alert('Add a Description');
-        event.preventDefault();
+        event.preventDefault(); // prevent the default behaviour of submit button
     } else {
         // if the description is added then check if category is added
         if ($('#category')[0].value == "Choose a category") {
